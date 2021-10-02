@@ -1,0 +1,6 @@
+venv
+settings.py
+my.cnf
+db.sqlite3
+.idea/*
+SQL
