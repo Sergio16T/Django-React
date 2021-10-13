@@ -1,3 +1,11 @@
+## PyCharm Setup
+**Select Python Interpretor:**  PyCharm > preferences > Project:Django-React > Python Interpretor
+
+#### Enable Django Support 
+1) PyCharm > preferences > Languages & Frameworks > Django
+2) Select Enable Django Support 
+3) Fill out project root, settings and manage script.
+
 ## Model Migrations - SQL
 By running makemigrations, you’re telling Django that you’ve made some changes to your models
 and that you’d like the changes to be stored as a migration:
@@ -16,7 +24,12 @@ to create those model tables in your database:
 python manage.py migrate
 ```
 
-
 ## Apps in Project 
 - polls: inital intro to Django. Some sample code to connect with a DB.
 - todolist: Simple REST API
+
+
+
+
+
+

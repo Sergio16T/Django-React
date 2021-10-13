@@ -80,6 +80,26 @@ class TodoListView(
         # If the update data is not valid, return an error response
         return Response(update_serializer.errors, status=400)
 
+    def patch(self, request, pk=None):
+        try:
+            # Check if the todo item exists
+            todo_item = Todo.objects.get(id=pk)
+        except Todo.DoesNotExist:
+            return Response({'errors': 'This todo item does not exist.'}, status=400)
+        # if it does exist, use the serialier to update data
+        update_serializer = TodoSerializer(todo_item, data=request.data, partial=True)
+
+        if update_serializer.is_valid():
+            # Data was valid, update the todo item in the database
+            todo_item_object = update_serializer.save()
+
+            # Serialize the todo item from Python Object to JSON format
+            read_serializer = TodoSerializer(todo_item_object)
+
+            return Response(read_serializer.data, status=200)
+        # If not valid return 400 error
+        return Response(update_serializer.errors, status=400)
+
     def delete(self, request, pk=None):
         try:
             # Check if the todo item the user wants to update exists
