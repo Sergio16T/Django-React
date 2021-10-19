@@ -3,8 +3,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.mixins import UpdateModelMixin, DestroyModelMixin
 
-from .models import Todo
-from .serializers import TodoSerializer
+from ..models import Todo
+from ..serializers import TodoSerializer
+from rest_framework.permissions import IsAuthenticated
 
 
 class TodoListView(
@@ -12,6 +13,7 @@ class TodoListView(
     UpdateModelMixin,  # Mixin that allows the basic APIView to handle PUT HTTP requests
     DestroyModelMixin,  # Mixin that allows the basic APIView to handle DELETE HTTP requests
 ):
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, pk=None):
         if pk:

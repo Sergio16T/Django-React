@@ -9,3 +9,6 @@ djangorestframework==3.12.4
 
 # Django Cors Headers - Used to enable CORS headers in API responses, and allow requests to be made to your API server from other origins.
 django-cors-headers==3.9.0
+
+# JWT - provides utilities for working with JSON Web Token Authentication
+djangorestframework-simplejwt==5.0.0

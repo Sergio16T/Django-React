@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+
 """
 path function is passed four arguments, two required: route and view, and two optional: kwargs, and name
 """
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('', include('todolist.urls')),
+    path('api/', include('authentication.urls')),
 ]
